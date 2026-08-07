@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Простой калькулятор</title>
+    <title>Калькулятор</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -104,12 +104,11 @@
     const btnMul = document.getElementById('btn-mul');
     const btnDiv = document.getElementById('btn-div');
 
-    // Универсальная функция для получения чисел и проверки на ошибку
+    // Функция для получения чисел и валидизации
     function calculate(operation) {
         const val1 = input1.value.trim();
         const val2 = input2.value.trim();
 
-        // Проверка: пустые ли поля или не являются ли они числами
         if (val1 === '' || val2 === '' || isNaN(val1) || isNaN(val2)) {
             resultBox.textContent = "Ошибка: введите числа!";
             resultBox.classList.add('error');
@@ -120,12 +119,11 @@
         const num1 = Number(val1);
         const num2 = Number(val2);
 
-        // Вызов соответствующей операции
         const res = operation(num1, num2);
         resultBox.textContent = res;
     }
 
-    // Обработчики событий для кнопок
+    // Обработчики событий
     btnSum.addEventListener('click', () => calculate(add));
     btnSub.addEventListener('click', () => calculate(subtract));
     btnMul.addEventListener('click', () => calculate(multiply));
